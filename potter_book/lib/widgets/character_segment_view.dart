@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:potter_book/constants/app_image_paths.dart';
 import 'package:potter_book/constants/app_padding.dart';
 import 'package:potter_book/constants/app_radius.dart';
 
 class CharacterSegmentView extends StatelessWidget {
-  const CharacterSegmentView({super.key});
+  final String imageUrl;
+  final String name;
+  final String house;
+
+  const CharacterSegmentView({
+    super.key,
+    required this.imageUrl,
+    required this.name,
+    required this.house,
+  });
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -17,7 +27,10 @@ class CharacterSegmentView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/image/harry.jpg'),
+          image:
+              imageUrl.isEmpty
+                  ? const AssetImage(AppImagePaths.defaultImage)
+                  : NetworkImage(imageUrl) as ImageProvider,
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(AppRadius.segmentRadius),
@@ -50,7 +63,7 @@ class CharacterSegmentView extends StatelessWidget {
                 CrossAxisAlignment.start, // Burada sola yaslıyoruz
             children: [
               Text(
-                'Harry Potter',
+                name,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -58,7 +71,7 @@ class CharacterSegmentView extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Text(
-                'Gryffindor',
+                house,
                 style: Theme.of(
                   context,
                 ).textTheme.bodySmall?.copyWith(color: Colors.white),
