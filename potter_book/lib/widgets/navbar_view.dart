@@ -13,20 +13,24 @@ class NavbarView extends ConsumerWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.1,
       decoration: _navBarStyle(),
-      child: GNav(
-        selectedIndex: viewModel.currentIndex,
-        onTabChange: viewModel.onTabChange,
-        activeColor: Theme.of(context).primaryColor,
-        color: Theme.of(context).colorScheme.surfaceTint,
-        textStyle: Theme.of(
-          context,
-        ).textTheme.labelSmall?.copyWith(color: Theme.of(context).primaryColor),
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        tabs: const [
-          GButton(icon: Icons.home, text: 'Home'),
-          GButton(icon: Icons.search, text: 'Search'),
-        ],
-      ),
+      child: _content(viewModel, context),
+    );
+  }
+
+  GNav _content(PageViewModel viewModel, BuildContext context) {
+    return GNav(
+      selectedIndex: viewModel.currentIndex,
+      onTabChange: viewModel.onTabChange,
+      activeColor: Theme.of(context).primaryColor,
+      color: Theme.of(context).colorScheme.surfaceTint,
+      textStyle: Theme.of(
+        context,
+      ).textTheme.labelSmall?.copyWith(color: Theme.of(context).primaryColor),
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      tabs: const [
+        GButton(icon: Icons.home, text: 'Houses'),
+        GButton(icon: Icons.search, text: 'Students'),
+      ],
     );
   }
 
