@@ -8,6 +8,18 @@ final class LightTheme {
     scaffoldBackgroundColor: Colors.white,
     textTheme: _textTheme(),
     colorScheme: _colorScheme(),
+    appBarTheme: _appbarTheme(),
+  );
+
+  static AppBarTheme _appbarTheme() => AppBarTheme(
+    backgroundColor: Colors.transparent,
+    surfaceTintColor: Colors.transparent,
+    titleTextStyle: GoogleFonts.poppins(
+      fontSize: 20,
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+    ),
+    centerTitle: true,
   );
 
   static ColorScheme _colorScheme() {
@@ -29,9 +41,18 @@ final class LightTheme {
 
   static TextTheme _textTheme() {
     return TextTheme(
+      titleLarge: GoogleFonts.poppins(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+      ),
       labelSmall: GoogleFonts.poppins(
         fontSize: 16,
         fontWeight: FontWeight.w500,
+      ),
+      bodySmall: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: Colors.white,
       ),
     );
   }
