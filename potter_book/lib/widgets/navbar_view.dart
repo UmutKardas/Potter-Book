@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:potter_book/features/base/view_model/base_view_model.dart';
+
+class NavbarView extends ConsumerWidget {
+  const NavbarView({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pageViewProvider);
+
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.1,
+      decoration: _navBarStyle(),
+      child: GNav(
+        selectedIndex: viewModel.currentIndex,
+        onTabChange: viewModel.onTabChange,
+        activeColor: Theme.of(context).primaryColor,
+        color: Theme.of(context).colorScheme.surfaceTint,
+        textStyle: Theme.of(
+          context,
+        ).textTheme.labelSmall?.copyWith(color: Theme.of(context).primaryColor),
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        tabs: const [
+          GButton(icon: Icons.home, text: 'Home'),
+          GButton(icon: Icons.search, text: 'Search'),
+        ],
+      ),
+    );
+  }
+
+  BoxDecoration _navBarStyle() {
+    return BoxDecoration(
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withAlpha(20),
+          blurRadius: 10,
+          offset: const Offset(0, -2),
+        ),
+      ],
+    );
+  }
+}
