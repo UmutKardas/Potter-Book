@@ -25,10 +25,10 @@ final class AppRouter {
         name: 'details',
       ),
       GoRoute(
-        path: '/characterDetails/:title',
+        path: '/characterDetails/:id',
         builder: (BuildContext context, GoRouterState state) {
-          final String detailTitle = state.pathParameters['title'] ?? '';
-          return CharacterDetailView(detailTitle: detailTitle);
+          final String id = state.pathParameters['id'] ?? '';
+          return CharacterDetailView(characterID: id);
         },
         name: 'characterDetails',
       ),

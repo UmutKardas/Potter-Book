@@ -5,7 +5,6 @@ import 'package:potter_book/controller/character_controller.dart';
 import 'package:potter_book/extension/string_extension.dart';
 import 'package:potter_book/model/character.dart';
 import 'package:potter_book/widgets/character_segment_view.dart';
-import 'package:potter_book/widgets/input_view.dart';
 
 class SearchView extends ConsumerWidget {
   const SearchView({super.key});
@@ -29,7 +28,6 @@ class SearchView extends ConsumerWidget {
         padding: AppPadding.scrollPagePadding,
         child: Column(
           children: [
-            InputView(),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Expanded(
               child: studentsAsyncValue.when(
@@ -50,6 +48,7 @@ class SearchView extends ConsumerWidget {
                         imageUrl: student.image,
                         name: student.name,
                         house: getHouse(student),
+                        id: student.id,
                       );
                     },
                   );
@@ -64,9 +63,9 @@ class SearchView extends ConsumerWidget {
     );
   }
 
-  AppBar _appBar() => AppBar(title: const Text('Search'));
+  AppBar _appBar() => AppBar(title: const Text('Students'));
 
   String getHouse(Character student) {
-    return student.house?.toString().split('.').last.capitalize() ?? 'Unknown';
+    return student.house.toString().split('.').last.capitalize();
   }
 }
