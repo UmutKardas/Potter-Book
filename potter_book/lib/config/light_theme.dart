@@ -72,6 +72,11 @@ final class LightTheme {
         fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
+      bodyMedium: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: AppColor.darkPageBackground,
+      ),
       bodySmall: GoogleFonts.poppins(
         fontSize: 14,
         fontWeight: FontWeight.w500,

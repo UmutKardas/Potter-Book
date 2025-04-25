@@ -74,6 +74,11 @@ final class DarkTheme {
         fontWeight: FontWeight.w500,
         color: Colors.white,
       ),
+      bodyMedium: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: Colors.white,
+      ),
       bodySmall: GoogleFonts.poppins(
         fontSize: 14,
         fontWeight: FontWeight.w500,
