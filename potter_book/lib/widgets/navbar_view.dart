@@ -12,7 +12,7 @@ class NavbarView extends ConsumerWidget {
 
     return Container(
       height: MediaQuery.of(context).size.height * 0.1,
-      decoration: _navBarStyle(),
+      decoration: _navBarStyle(context),
       child: _content(viewModel, context),
     );
   }
@@ -34,12 +34,12 @@ class NavbarView extends ConsumerWidget {
     );
   }
 
-  BoxDecoration _navBarStyle() {
+  BoxDecoration _navBarStyle(BuildContext context) {
     return BoxDecoration(
-      color: Colors.white,
+      color: Theme.of(context).colorScheme.secondary,
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withAlpha(20),
+          color: Theme.of(context).colorScheme.surface.withAlpha(40),
           blurRadius: 10,
           offset: const Offset(0, -2),
         ),
