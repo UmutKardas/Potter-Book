@@ -4,6 +4,7 @@ import 'package:potter_book/config/dark_theme.dart';
 import 'package:potter_book/config/light_theme.dart';
 import 'package:potter_book/features/base/view/base_view.dart';
 import 'package:potter_book/features/home/view_model/home_view_model.dart';
+import 'package:potter_book/router/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,13 +18,13 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(homeViewModelProvider);
 
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Potter Book',
       debugShowCheckedModeBanner: false,
       theme: LightTheme.theme,
       darkTheme: DarkTheme.theme,
       themeMode: themeMode,
-      home: const BaseView(),
+      routerConfig: AppRouter().router,
     );
   }
 }

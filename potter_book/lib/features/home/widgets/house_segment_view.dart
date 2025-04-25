@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:potter_book/constants/app_padding.dart';
 import 'package:potter_book/constants/app_radius.dart';
 import 'package:potter_book/features/home/model/house_model.dart';
@@ -13,7 +14,9 @@ class HouseSegmentView extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.goNamed('details', pathParameters: {'title': house.name});
+      },
       child: Container(
         decoration: _segmentDecoration(),
         child: Padding(
