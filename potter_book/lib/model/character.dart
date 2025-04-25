@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/src/widgets/basic.dart';
+
+import 'package:flutter/src/widgets/framework.dart';
+
 List<Character> characterFromJson(String str) =>
     List<Character>.from(json.decode(str).map((x) => Character.fromJson(x)));
 
@@ -96,6 +100,12 @@ class Character {
     "alive": alive,
     "image": image,
   };
+
+  when({
+    required RenderObjectWidget Function(dynamic character) data,
+    required Center Function() loading,
+    required Center Function(dynamic error, dynamic stackTrace) error,
+  }) {}
 }
 
 enum Ancestry { EMPTY, HALF_BLOOD, MUGGLEBORN, PURE_BLOOD }

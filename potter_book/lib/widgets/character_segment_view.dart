@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:potter_book/constants/app_image_paths.dart';
 import 'package:potter_book/constants/app_padding.dart';
 import 'package:potter_book/constants/app_radius.dart';
@@ -7,16 +8,21 @@ class CharacterSegmentView extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String house;
+  final String id;
 
   const CharacterSegmentView({
     super.key,
     required this.imageUrl,
     required this.name,
     required this.house,
+    required this.id,
   });
 
   @override
   Widget build(BuildContext context) => GestureDetector(
+    onTap: () {
+      context.goNamed('characterDetails', pathParameters: {'id': id});
+    },
     child: Padding(
       padding: AppPadding.segmentPadding,
       child: _segmentStyle(context),
