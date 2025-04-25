@@ -25,14 +25,14 @@ final class LightTheme {
   static ColorScheme _colorScheme() {
     return ColorScheme(
       primary: AppColor.primary,
-      secondary: AppColor.primary,
-      surface: Colors.white,
+      secondary: Colors.white,
+      surface: Colors.black12,
       background: Colors.white,
       error: Colors.red,
-      onPrimary: Colors.white,
+      onPrimary: AppColor.darkPageBackground,
       onSecondary: Colors.white,
       onSurface: Colors.black,
-      surfaceTint: AppColor.hintColor,
+      surfaceTint: AppColor.lightHintColor,
       onBackground: Colors.black,
       onError: Colors.white,
       brightness: Brightness.light,
