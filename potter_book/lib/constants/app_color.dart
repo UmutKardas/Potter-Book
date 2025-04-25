@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final class AppColor {
   static const Color primary = Color(0xFFBFA34E);
   static const Color darkPageBackground = Color(0xFF1A1A1A);
-  static const Color lightHintColor = Color(0xFFECEEF5);
+  static const Color lightHintColor = Color(0xFFC0C4CF);
   static const Color darkHintColor = Color(0xFF373737);
 
   //House Colors

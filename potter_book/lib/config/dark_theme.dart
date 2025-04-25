@@ -9,7 +9,30 @@ final class DarkTheme {
     textTheme: _textTheme(),
     colorScheme: _colorScheme(),
     appBarTheme: _appbarTheme(),
+    inputDecorationTheme: _inputDecorationTheme(),
   );
+
+  static InputDecorationTheme _inputDecorationTheme() {
+    return InputDecorationTheme(
+      filled: true,
+      fillColor: AppColor.darkPageBackground,
+      hintStyle: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppColor.lightHintColor,
+      ),
+      prefixIconColor: AppColor.primary,
+      enabledBorder: _outlineInputBorder(),
+      focusedBorder: _outlineInputBorder(),
+    );
+  }
+
+  static OutlineInputBorder _outlineInputBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(color: AppColor.primary, width: 1.5),
+    );
+  }
 
   static AppBarTheme _appbarTheme() => AppBarTheme(
     backgroundColor: Colors.transparent,
