@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class DetailView extends StatelessWidget {
-  const DetailView({super.key, required this.detailTitle});
+class HouseDetailView extends StatelessWidget {
+  const HouseDetailView({super.key, required this.detailTitle});
 
   final String detailTitle;
 

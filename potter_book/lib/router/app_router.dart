@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:potter_book/features/base/view/base_view.dart';
-import 'package:potter_book/features/detail/view/detail_view.dart';
+import 'package:potter_book/features/detail/view/character_detail_view.dart';
+import 'package:potter_book/features/detail/view/house_detail_view.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -19,9 +20,17 @@ final class AppRouter {
         path: '/details/:title',
         builder: (BuildContext context, GoRouterState state) {
           final String detailTitle = state.pathParameters['title'] ?? '';
-          return DetailView(detailTitle: detailTitle);
+          return HouseDetailView(detailTitle: detailTitle);
         },
         name: 'details',
+      ),
+      GoRoute(
+        path: '/characterDetails/:title',
+        builder: (BuildContext context, GoRouterState state) {
+          final String detailTitle = state.pathParameters['title'] ?? '';
+          return CharacterDetailView(detailTitle: detailTitle);
+        },
+        name: 'characterDetails',
       ),
     ],
   );
