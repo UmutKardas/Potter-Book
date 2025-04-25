@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:potter_book/config/dark_theme.dart';
 import 'package:potter_book/config/light_theme.dart';
 import 'package:potter_book/features/base/view/base_view.dart';
+import 'package:potter_book/features/home/view_model/home_view_model.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MainApp()));
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends ConsumerWidget {
+  const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(homeViewModelProvider);
+
     return MaterialApp(
       title: 'Potter Book',
-      theme: LightTheme.theme,
-      home: const BaseView(),
       debugShowCheckedModeBanner: false,
+      theme: LightTheme.theme,
+      darkTheme: DarkTheme.theme,
+      themeMode: themeMode,
+      home: const BaseView(),
     );
   }
 }
