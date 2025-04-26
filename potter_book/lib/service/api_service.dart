@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:potter_book/constants/app_network_path.dart';
 import 'package:potter_book/model/character.dart';
 
 class ApiService {
@@ -6,9 +7,7 @@ class ApiService {
 
   Future<List<Character>> fetchStudents() async {
     try {
-      final response = await _dio.get(
-        'https://hp-api.onrender.com/api/characters/students',
-      );
+      final response = await _dio.get(AppNetworkPath.students);
       if (response.statusCode == 200) {
         List<dynamic> data = response.data;
         return data.map((item) => Character.fromJson(item)).toList();
