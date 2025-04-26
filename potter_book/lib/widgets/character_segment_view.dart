@@ -65,8 +65,7 @@ class CharacterSegmentView extends StatelessWidget {
           padding: AppPadding.segmentPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Burada sola yaslıyoruz
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 name,
