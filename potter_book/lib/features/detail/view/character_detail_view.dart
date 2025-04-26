@@ -48,7 +48,6 @@ class CharacterDetailView extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Conditional CircleAvatar rendering
         if (character.image?.isNotEmpty ?? false)
           CircleAvatar(
             radius: size.width * 0.2,
