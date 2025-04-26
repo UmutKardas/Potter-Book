@@ -5,6 +5,7 @@ import 'package:potter_book/constants/app_padding.dart';
 import 'package:potter_book/constants/app_radius.dart';
 import 'package:potter_book/controller/character_controller.dart';
 import 'package:potter_book/extension/string_extension.dart';
+import 'package:potter_book/features/detail/view/character_detail_tile.dart';
 import 'package:potter_book/model/character.dart';
 
 class CharacterDetailView extends ConsumerWidget {
@@ -62,48 +63,28 @@ class CharacterDetailView extends ConsumerWidget {
         ),
         const SizedBox(height: 10),
         if (character.house.name.isNotEmpty)
-          _listTile(
-            size,
-            context,
-            'House: ${character.house.name.capitalize()}',
+          CharacterDetailTile(
+            info: 'House: ${character.house.name.capitalize()}',
+            size: size,
           ),
         if (character.gender.name.isNotEmpty)
-          _listTile(size, context, 'Gender: ${character.gender.name}'),
-        if (character.ancestry.name.isNotEmpty)
-          _listTile(size, context, 'Ancestry: ${character.ancestry.name}'),
-        if (character.species.name.isNotEmpty)
-          _listTile(size, context, 'Species: ${character.species.name}'),
-        if (character.actor.isNotEmpty)
-          _listTile(size, context, 'Actor: ${character.actor}'),
-      ],
-    );
-  }
-
-  Widget _listTile(Size size, BuildContext context, String info) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Container(
-        width: size.width,
-        height: size.width * 0.15,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(AppRadius.segmentRadius),
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).colorScheme.surface.withAlpha(30),
-              blurRadius: 10,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(info, style: Theme.of(context).textTheme.bodyMedium),
+          CharacterDetailTile(
+            info: 'Gender: ${character.gender.name}',
+            size: size,
           ),
-        ),
-      ),
+        if (character.ancestry.name.isNotEmpty)
+          CharacterDetailTile(
+            info: 'Ancestry: ${character.ancestry.name}',
+            size: size,
+          ),
+        if (character.species.name.isNotEmpty)
+          CharacterDetailTile(
+            info: 'Species: ${character.species.name}',
+            size: size,
+          ),
+        if (character.actor.isNotEmpty)
+          CharacterDetailTile(info: 'Actor: ${character.actor}', size: size),
+      ],
     );
   }
 
